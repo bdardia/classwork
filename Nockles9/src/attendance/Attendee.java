@@ -2,7 +2,8 @@ package attendance;
 
 public interface Attendee {
 
-	/**In addition to the following methods, please include a 
+	/**In addition to the following methods, please create a class called 
+	 * 'Student' that implements the Attendee interface and include a 
 	 * constructor that takes two parameters: firstName and lastName.
 	 * Use these values to instantiate corresponding fields.
 	 * @return
