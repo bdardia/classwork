@@ -32,7 +32,7 @@ public class AttendanceApp {
 		String s = "";
 		for(int i = 0; i < students.length; i++){
 
-			s+=students[i].getReportString();
+			s+=students[i].getReportString()+"\n";
 		}
 		System.out.println(s);
 		AttendanceMain.print("(Press enter)");
