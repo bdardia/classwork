@@ -27,7 +27,7 @@ public class Student implements Attendee
 		return this.firstName;
 	}
 	
-	public String getLastname()
+	public String getLastName()
 	{
 		return this.lastName;
 	}
@@ -40,5 +40,30 @@ public class Student implements Attendee
 	public boolean matches(String last)
 	{
 		return (lastName.toLowerCase().equals(last.toLowerCase()));
+	}
+	
+	public String getReportString()
+	{
+		String finalString = this.lastName;
+		
+		for (int i = 0; i < (20 - this.lastName.length()); i += 1)
+		{
+			finalString += " ";
+		}
+		finalString += this.firstName;
+		for (int i = 0; i < (20 - this.firstName.length()); i += 1)
+		{
+			finalString += " ";
+		}
+		if (this.present)
+		{
+			finalString += ("PRESENT");
+			return finalString;
+		}
+		else
+		{
+			finalString += ("ABSENT");
+			return finalString;
+		}
 	}
 }
