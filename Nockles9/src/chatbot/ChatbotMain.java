@@ -11,7 +11,11 @@ public class ChatbotMain
 		chatbot.startChatting();
 	}
 	
-	
+	// return the index of the keyword after startPsn that is isolated and has no negations or -1 otherwise
+	public static int findKeyword(String searchString, String keyword, int startPsn)
+	{
+		
+	}
 	
 	public static boolean keywordIsIsolated(int psn, String keyword, String s)
 	  {
