@@ -8,4 +8,14 @@ public class ChatbotBen implements Topic
 		
 	}
 
+	public boolean isTriggered(String response) 
+	{
+		return false;
+	}
+
+	public void talk(String response) 
+	{
+		
+	}
+
 }

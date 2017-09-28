@@ -26,6 +26,11 @@ public class Chatbot
 			if (ben.isTriggered(response))
 			{
 				chatting = false;
+				ben.talk(response);
+			}
+			else
+			{
+				ChatbotMain.print("Sorry, don't understand.");
 			}
 		}
 	}
