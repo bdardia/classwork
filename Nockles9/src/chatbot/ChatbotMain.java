@@ -14,7 +14,24 @@ public class ChatbotMain
 	// return the index of the keyword after startPsn that is isolated and has no negations or -1 otherwise
 	public static int findKeyword(String searchString, String keyword, int startPsn)
 	{
+		searchString = searchString.toLowerCase();
+		keyword = keyword.toLowerCase();
 		
+		int psn = searchString.indexOf(searchString, startPsn);
+		
+		while (psn >= 0)
+		{
+			if (keywordIsIsolated(psn, keyword, searchString) && noNegations(searchString, psn))
+			{
+				return psn;
+			}
+			else
+			{
+				psn = searchString.indexOf(keyword, psn + 1);
+			}
+		}
+		
+		return -1;
 	}
 	
 	public static boolean keywordIsIsolated(int psn, String keyword, String s)
