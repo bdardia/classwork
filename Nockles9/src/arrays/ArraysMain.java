@@ -12,11 +12,19 @@ public class ArraysMain
 		populate1toN(testArray);
 		// populate(testArray);
 		// countOccurences(testArray, 2, 12);
-		swap(testArray, 0, 1);
+		// swap(testArray, 0, 1);
+		shuffle(testArray);
 		System.out.println(Arrays.toString(testArray));
 	}
 	
-	
+	private void shuffle(int[] arr)
+	{
+		for (int i = 0; i < arr.length; i += 1)
+		{
+			int rnd = (int)(Math.random() * arr.length);
+			swap(arr, i, rnd);
+		}
+	}
 	
 	private void swap(int[] arr, int value1, int value2) 
 	{
