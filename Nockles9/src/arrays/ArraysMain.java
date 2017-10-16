@@ -4,17 +4,43 @@ import java.util.Arrays;
 
 public class ArraysMain 
 {
-	private int[] testArray;
+	private String[] suits;
+	private String[] values;
 	
 	public ArraysMain()
 	{
-		testArray = new int[50];
-		populate1toN(testArray);
+		suits = new String[4];
+		suits[0] = "Clubs";
+		suits[1] = "Hearts";
+		suits[2] = "Diamonds";
+		suits[3] = "Spades";
+		values = new String[13];
+		for (int i = 0; i < values.length; i += 1)
+		{
+			values[i] = "" + (i + 1);
+		}
+		values[0] = "Ace";
+		values[12] = "King";
+		values[11] = "Queen";
+		values[10] = "Jack";
+		// populate1toN(testArray);
 		// populate(testArray);
 		// countOccurences(testArray, 2, 12);
 		// swap(testArray, 0, 1);
-		shuffle(testArray);
-		System.out.println(Arrays.toString(testArray));
+		// shuffle(testArray);
+		// System.out.println(Arrays.toString(testArray));
+		printCards(suits, values);
+	}
+	
+	private void printCards(String[] suitArr, String[] valueArr)
+	{
+		for (int i = 0; i < suitArr.length; i += 1)
+		{
+			for (int o = 0; o < valueArr.length; o += 1)
+			{
+				System.out.println(valueArr[o] + " of " + suitArr[i]);
+			}
+		}
 	}
 	
 	private void shuffle(int[] arr)
