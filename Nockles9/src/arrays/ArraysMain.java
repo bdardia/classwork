@@ -1,16 +1,32 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class ArraysMain 
 {
 	private int[] testArray;
 	
 	public ArraysMain()
 	{
-		testArray = new int[5000];
-		populate(testArray);
-		countOccurences(testArray, 2, 12);
+		testArray = new int[50];
+		populate1toN(testArray);
+		// populate(testArray);
+		// countOccurences(testArray, 2, 12);
+		swap(testArray, 0, 1);
+		System.out.println(Arrays.toString(testArray));
 	}
 	
+	
+	
+	private void swap(int[] arr, int value1, int value2) 
+	{
+		int tempValue = arr[value1];
+		arr[value1] = arr[value2];
+		arr[value2] = tempValue;
+	}
+
+
+
 	private void populate1toN(int[] arr)
 	{
 		for (int i = 0; i < arr.length; i += 1)
