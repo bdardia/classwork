@@ -31,9 +31,32 @@ public class ArraysMain
 		// swap(testArray, 0, 1);
 		// shuffle(testArray);
 		// reverseOrder(testArray);
+		System.out.println(Arrays.toString(testArray));
 		// testArray = subArray(testArray, 10, 5);
+		testArray = frontToBack(testArray);
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
+	}
+	
+	private int[] frontToBack(int[] arr)
+	{
+		int[] finalArr = new int[arr.length];
+		int tempVal = 0;
+		
+		for (int i = 0; i < arr.length; i += 1)
+		{
+			if (i == 0)
+			{
+				tempVal = arr[arr.length - 1];
+				finalArr[arr.length - 1] = arr[0];
+			}
+			else
+			{
+				finalArr[i - 1] = arr[i];
+			}
+		}
+		
+		return finalArr;
 	}
 	
 	private int[] subArray(int[] arr, int psn, int length)
