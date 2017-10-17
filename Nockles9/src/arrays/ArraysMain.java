@@ -33,8 +33,7 @@ public class ArraysMain
 		// reverseOrder(testArray);
 		// testArray = subArray(testArray, 10, 5);
 		// frontToBack(testArray);
-		testArray[48] = 1;
-		System.out.println(longestConsecutiveSequence(testArray));
+		// System.out.println(longestConsecutiveSequence(testArray));
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
 	}
@@ -54,14 +53,14 @@ public class ArraysMain
 			else
 			{
 				tempIndex = i;
-				finalCount = tempCount;
+				if (tempCount > finalCount)
+				{
+					finalCount = tempCount;
+				}
 				tempCount = 1;
 			}
 		}
-		if (tempCount > finalCount)
-		{
-			finalCount = tempCount;
-		}
+		
 		
 		return finalCount;
 	}
@@ -70,14 +69,11 @@ public class ArraysMain
 	{
 		boolean consecutive = true;
 		
-		for (int i = start; i < end; i += 1)
+		for (int i = start + 1; i < end; i += 1)
 		{
-			if (!(i == start))
+			if (arr[i] != (arr[i - 1] + 1))
 			{
-				if (arr[i] != (arr[i - 1] + 1))
-				{
-					consecutive = false;
-				}
+				consecutive = false;
 			}
 		}
 		
