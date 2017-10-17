@@ -30,9 +30,20 @@ public class ArraysMain
 		// countOccurences(testArray, 2, 12);
 		// swap(testArray, 0, 1);
 		// shuffle(testArray);
-		reverseOrder(testArray);
+		// reverseOrder(testArray);
+		//testArray = subArray(testArray, 10, 5);
 		System.out.println(Arrays.toString(testArray));
 		//printCards(suits, values);
+	}
+	
+	private int[] subArray(int[] arr, int psn, int length)
+	{
+		int[] finalArr = new int[length];
+		for (int i = psn; i < (psn + length); i += 1)
+		{
+			finalArr[i - psn] = arr[i];
+		}
+		return finalArr;
 	}
 	
 	private void reverseOrder(int[] arr)
