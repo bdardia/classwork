@@ -48,7 +48,7 @@ public class ArraysMain
 	
 	private void reverseOrder(int[] arr)
 	{
-		for (int i = 0; i < (int)(arr.length / 2); i += 1)
+		for (int i = 0; i < (arr.length / 2); i += 1)
 		{
 			swap(arr, i, (arr.length - 1) - i);
 		}
