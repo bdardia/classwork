@@ -6,30 +6,41 @@ public class ArraysMain
 {
 	private String[] suits;
 	private String[] values;
+	private int[] testArray;
 	
 	public ArraysMain()
 	{
-		suits = new String[4];
-		suits[0] = "Clubs";
-		suits[1] = "Hearts";
-		suits[2] = "Diamonds";
-		suits[3] = "Spades";
-		values = new String[13];
-		for (int i = 0; i < values.length; i += 1)
-		{
-			values[i] = "" + (i + 1);
-		}
-		values[0] = "Ace";
-		values[12] = "King";
-		values[11] = "Queen";
-		values[10] = "Jack";
-		// populate1toN(testArray);
+		testArray = new int[50];
+		//suits = new String[4];
+		//suits[0] = "Clubs";
+		//suits[1] = "Hearts";
+		//suits[2] = "Diamonds";
+		//suits[3] = "Spades";
+		//values = new String[13];
+		//for (int i = 0; i < values.length; i += 1)
+		//{
+		//	values[i] = "" + (i + 1);
+		//}
+		//values[0] = "Ace";
+		//values[12] = "King";
+		//values[11] = "Queen";
+		//values[10] = "Jack";
+		populate1toN(testArray);
 		// populate(testArray);
 		// countOccurences(testArray, 2, 12);
 		// swap(testArray, 0, 1);
 		// shuffle(testArray);
-		// System.out.println(Arrays.toString(testArray));
-		printCards(suits, values);
+		reverseOrder(testArray);
+		System.out.println(Arrays.toString(testArray));
+		//printCards(suits, values);
+	}
+	
+	private void reverseOrder(int[] arr)
+	{
+		for (int i = 0; i < (int)(arr.length) / 2; i += 1)
+		{
+			swap(arr, i, (arr.length - 1) - i);
+		}
 	}
 	
 	private void printCards(String[] suitArr, String[] valueArr)
