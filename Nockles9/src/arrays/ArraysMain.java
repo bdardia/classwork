@@ -81,8 +81,6 @@ public class ArraysMain
 		arr[value2] = tempValue;
 	}
 
-
-
 	private void populate1toN(int[] arr)
 	{
 		for (int i = 0; i < arr.length; i += 1)
