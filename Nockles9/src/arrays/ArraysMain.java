@@ -31,11 +31,60 @@ public class ArraysMain
 		// swap(testArray, 0, 1);
 		// shuffle(testArray);
 		// reverseOrder(testArray);
-		// System.out.println(Arrays.toString(testArray));
 		// testArray = subArray(testArray, 10, 5);
 		// frontToBack(testArray);
+		testArray[15] = 1;
+		System.out.println(longestConsecutiveSequence(testArray));
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
+	}
+	
+	private int longestConsecutiveSequence(int[] arr)
+	{
+		int finalCount = 1;
+		int tempCount = 1;
+		int tempIndex = 0;
+		
+		for (int i = 0; i < arr.length; i += 1)
+		{
+			if (!(i == 0))
+			{
+				if (isConsecutive(arr, tempIndex, i))
+				{
+					tempCount += 1;
+				}
+				else
+				{
+					tempIndex = i;
+					finalCount = tempCount;
+					tempCount = 1;
+				}
+			}
+		}
+		if (tempCount > finalCount)
+		{
+			finalCount = tempCount;
+		}
+		
+		return finalCount;
+	}
+	
+	private boolean isConsecutive(int[] arr, int start, int end)
+	{
+		boolean consecutive = true;
+		
+		for (int i = start; i < end; i += 1)
+		{
+			if (!(i == start))
+			{
+				if (arr[i] != (arr[i - 1] + 1))
+				{
+					consecutive = false;
+				}
+			}
+		}
+		
+		return consecutive;
 	}
 	
 	private void cycleThrough(int[] arr, int z)
