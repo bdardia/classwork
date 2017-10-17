@@ -45,20 +45,17 @@ public class ArraysMain
 		int tempCount = 1;
 		int tempIndex = 0;
 		
-		for (int i = 0; i < arr.length; i += 1)
+		for (int i = 1; i < arr.length; i += 1)
 		{
-			if (!(i == 0))
+			if (isConsecutive(arr, tempIndex, i))
 			{
-				if (isConsecutive(arr, tempIndex, i))
-				{
-					tempCount += 1;
-				}
-				else
-				{
-					tempIndex = i;
-					finalCount = tempCount;
-					tempCount = 1;
-				}
+				tempCount += 1;
+			}
+			else
+			{
+				tempIndex = i;
+				finalCount = tempCount;
+				tempCount = 1;
 			}
 		}
 		if (tempCount > finalCount)
