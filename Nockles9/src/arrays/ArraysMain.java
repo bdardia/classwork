@@ -31,11 +31,19 @@ public class ArraysMain
 		// swap(testArray, 0, 1);
 		// shuffle(testArray);
 		// reverseOrder(testArray);
-		System.out.println(Arrays.toString(testArray));
+		// System.out.println(Arrays.toString(testArray));
 		// testArray = subArray(testArray, 10, 5);
 		// frontToBack(testArray);
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
+	}
+	
+	private void cycleThrough(int[] arr, int z)
+	{
+		for (int i = 0; i < z; i += 1)
+		{
+			frontToBack(arr);
+		}
 	}
 	
 	private int[] frontToBack(int[] arr)
