@@ -33,7 +33,7 @@ public class ArraysMain
 		// reverseOrder(testArray);
 		System.out.println(Arrays.toString(testArray));
 		// testArray = subArray(testArray, 10, 5);
-		frontToBack(testArray);
+		// frontToBack(testArray);
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
 	}
