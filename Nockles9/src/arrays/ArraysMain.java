@@ -33,7 +33,7 @@ public class ArraysMain
 		// reverseOrder(testArray);
 		// testArray = subArray(testArray, 10, 5);
 		// frontToBack(testArray);
-		testArray[15] = 1;
+		testArray[48] = 1;
 		System.out.println(longestConsecutiveSequence(testArray));
 		System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
@@ -41,9 +41,9 @@ public class ArraysMain
 	
 	private int longestConsecutiveSequence(int[] arr)
 	{
-		int finalCount = 1;
-		int tempCount = 1;
-		int tempIndex = 0;
+		int finalCount = 0;
+		int tempCount = 0;
+		int tempIndex = 1;
 		
 		for (int i = 1; i < arr.length; i += 1)
 		{
