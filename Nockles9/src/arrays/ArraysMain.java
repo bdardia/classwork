@@ -10,7 +10,37 @@ public class ArraysMain
 	
 	public ArraysMain()
 	{
-		testArray = new int[50];
+		public ArraysMain() {
+			wednesdayMethods();
+		}
+
+		private void wednesdayMethods() {
+			int[] diceRolls = new int[10000];
+			populate(diceRolls);
+			int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+			int max = 1;
+			int longest = data[0];
+			System.out.println("The longest sequence is " + 
+					longest + " rolls. It happened on roll #"+data[1]+
+					" the sequence was: "
+					+ Arrays.toString(subArray(diceRolls, 
+							data[1], data[0]))+".");
+			while(longest != 11) {
+				populate(diceRolls);
+				data = longestConsecutiveSeqAndIndex(diceRolls);
+				longest = data[0];
+				if(longest > max) {
+					max = longest;
+					System.out.println("The longest sequence is " + 
+							longest + " rolls. It happened on roll #"+data[1]+
+							" the sequence was: "
+							+ Arrays.toString(subArray(diceRolls, 
+									data[1], data[0]))+".");
+				}
+			}
+		}
+		
+		// testArray = new int[50];
 		// suits = new String[4];
 		// suits[0] = "Clubs";
 		// suits[1] = "Hearts";
@@ -25,7 +55,7 @@ public class ArraysMain
 		// values[12] = "King";
 		// values[11] = "Queen";
 		// values[10] = "Jack";
-		populate1toN(testArray);
+		// populate1toN(testArray);
 		// populate(testArray);
 		// countOccurences(testArray, 2, 12);
 		// swap(testArray, 0, 1);
@@ -34,8 +64,31 @@ public class ArraysMain
 		// testArray = subArray(testArray, 10, 5);
 		// frontToBack(testArray);
 		// System.out.println(longestConsecutiveSequence(testArray));
-		System.out.println(Arrays.toString(testArray));
+		// System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
+	}
+	
+	private int[] longestConsecutiveSeqAndIndex(int[] arr) {
+		//use an int[] to store the data
+		int[] data = new int[2];//element at zero is length, at 1 is position
+
+
+		data[0] = 1;
+		int currentCount = 1;
+		for(int i = 0; i < arr.length; i++) {
+			while(i + currentCount < arr.length && 
+					isConsecutive(arr, i, i+currentCount)) {
+				currentCount++;
+			}
+			if(currentCount > data[0]) {
+				data[0] = currentCount;
+				//also store the index where this sequence started
+				data[1] = i;
+			}
+			i = i + currentCount-1;//saves time
+			currentCount = 1;
+		}
+		return data;
 	}
 	
 	private int longestConsecutiveSequence(int[] arr)
