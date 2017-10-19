@@ -65,6 +65,6 @@ public class Person {
 				friendsList += "and " + friends[i].firstName;
 			}
 		}
-		System.out.println("My friends are " + friendsList);
+		System.out.println("My friends are " + friendsList + ".");
 	}
 }
