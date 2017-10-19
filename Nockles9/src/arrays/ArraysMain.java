@@ -8,37 +8,35 @@ public class ArraysMain
 	private String[] values;
 	private int[] testArray;
 	
-	public ArraysMain()
-	{
-		public ArraysMain() {
-			wednesdayMethods();
-		}
+	public ArraysMain() {
+		wednesdayMethods();
+	}
 
-		private void wednesdayMethods() {
-			int[] diceRolls = new int[10000];
+	private void wednesdayMethods() {
+		int[] diceRolls = new int[10000];
+		populate(diceRolls);
+		int[] data = longestConsecutiveSeqAndIndex(diceRolls);
+		int max = 1;
+		int longest = data[0];
+		System.out.println("The longest sequence is " + 
+				longest + " rolls. It happened on roll #"+data[1]+
+				" the sequence was: "
+				+ Arrays.toString(subArray(diceRolls, 
+						data[1], data[0]))+".");
+		while(longest != 11) {
 			populate(diceRolls);
-			int[] data = longestConsecutiveSeqAndIndex(diceRolls);
-			int max = 1;
-			int longest = data[0];
-			System.out.println("The longest sequence is " + 
-					longest + " rolls. It happened on roll #"+data[1]+
-					" the sequence was: "
-					+ Arrays.toString(subArray(diceRolls, 
-							data[1], data[0]))+".");
-			while(longest != 11) {
-				populate(diceRolls);
-				data = longestConsecutiveSeqAndIndex(diceRolls);
-				longest = data[0];
-				if(longest > max) {
-					max = longest;
-					System.out.println("The longest sequence is " + 
-							longest + " rolls. It happened on roll #"+data[1]+
-							" the sequence was: "
-							+ Arrays.toString(subArray(diceRolls, 
-									data[1], data[0]))+".");
-				}
+			data = longestConsecutiveSeqAndIndex(diceRolls);
+			longest = data[0];
+			if(longest > max) {
+				max = longest;
+				System.out.println("The longest sequence is " + 
+						longest + " rolls. It happened on roll #"+data[1]+
+						" the sequence was: "
+						+ Arrays.toString(subArray(diceRolls, 
+								data[1], data[0]))+".");
 			}
 		}
+	}
 		
 		// testArray = new int[50];
 		// suits = new String[4];
@@ -66,7 +64,6 @@ public class ArraysMain
 		// System.out.println(longestConsecutiveSequence(testArray));
 		// System.out.println(Arrays.toString(testArray));
 		// printCards(suits, values);
-	}
 	
 	private int[] longestConsecutiveSeqAndIndex(int[] arr) {
 		//use an int[] to store the data
