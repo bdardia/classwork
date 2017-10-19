@@ -58,11 +58,11 @@ public class Person {
 		{
 			if (i != (friends.length - 1))
 			{
-				friendsList += friends[i].firstName + friends[i].lastName + ", ";
+				friendsList += friends[i].firstName + " " + friends[i].lastName + ", ";
 			}
 			else
 			{
-				friendsList += "and " + friends[i].firstName + friends[i].lastName;
+				friendsList += "and " + friends[i].firstName + " " + friends[i].lastName;
 			}
 		}
 		System.out.println("My friends are " + friendsList + ".");

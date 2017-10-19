@@ -8,7 +8,12 @@ public class ObjectMain {
 		// people[0] = new Thing("toaster oven");
 		Person[] group = selectGroup(people, 120);
 		analyzeCommonalities(people, group);
-		
+		for (Person p: people)
+		{
+			p.mingle(people);
+			System.out.println(p);
+			p.stateYourFriends();
+		}
 	}
 	
 
