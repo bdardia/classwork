@@ -25,7 +25,9 @@ public class PassByValuesExamples
 		arr[1] = 998;
 		arr[2] = 997;
 	}
-
+	
+	// You cannot change a primitive inside of a method, since primitives don't reference other data
+	
 	public static void changeEverything(String s, int x, int[] arr)
 	{
 		s = "Goodbye";
