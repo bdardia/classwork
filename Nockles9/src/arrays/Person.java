@@ -74,6 +74,7 @@ public class Person {
 	{
 		String[] vowels = {"a", "e", "i", "o", "u"};
 		int numVowels = 0;
+		String nickname = name;
 		
 		for (int i = 0; i < name.length(); i += 1)
 		{
@@ -87,9 +88,9 @@ public class Person {
 			
 			if (numVowels == 2)
 			{
-				return (name.substring(0, i));
+				return (nickname.substring(0, i));
 			}
 		}
-		return name;
+		return nickname;
 	}
 }
