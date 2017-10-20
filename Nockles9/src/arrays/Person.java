@@ -87,7 +87,7 @@ public class Person {
 			
 			if (numVowels == 2)
 			{
-				return (name.substring(0, i - 1));
+				return (name.substring(0, i));
 			}
 		}
 		return name;
