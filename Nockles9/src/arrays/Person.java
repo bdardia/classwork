@@ -67,4 +67,27 @@ public class Person {
 		}
 		System.out.println("My friends are " + friendsList + ".");
 	}
+	
+	public static String createNickname(String name)
+	{
+		String[] vowels = {"a", "e", "i", "o", "u"};
+		int numVowels = 0;
+		
+		for (int i = 0; i < name.length(); i += 1)
+		{
+			for (int o = 0; o < vowels.length; o += 1)
+			{
+				if (name.substring(i, i + 1).equals(vowels[o]))
+				{
+					numVowels += 1;
+				}
+			}
+			
+			if (numVowels == 2)
+			{
+				return (name.substring(0, i - 1));
+			}
+		}
+		return name;
+	}
 }
