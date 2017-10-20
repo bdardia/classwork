@@ -6,9 +6,9 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		int[] arr = {4, 3, 2, 1, 0};
-		changeNeighbors(arr, 2);
-		System.out.println(Arrays.toString(arr));
+		// int[] arr = {4, 3, 2, 1, 0};
+		// changeNeighbors(arr, 2);
+		// System.out.println(Arrays.toString(arr));
 	}
 
 	private static void changeNeighbors(int[] arr, int i) 
