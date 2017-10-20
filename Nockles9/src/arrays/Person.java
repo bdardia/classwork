@@ -77,7 +77,7 @@ public class Person {
 		{
 			for (int o = 0; o < vowels.length; o += 1)
 			{
-				if (name.substring(i, i + 1).equals(vowels[o]))
+				if (name.substring(i, i + 1).toLowerCase().equals(vowels[o]))
 				{
 					numVowels += 1;
 				}
