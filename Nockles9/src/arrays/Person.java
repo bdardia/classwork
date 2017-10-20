@@ -17,6 +17,7 @@ public class Person {
 	private Borough home;
 	private Hobby hobby;
 	private Person[] friends;
+	private String nickname;
 	
 	public Person(String first, String last, Borough home) {
 		this.firstName = first;
@@ -24,11 +25,12 @@ public class Person {
 		this.home = home;
 		this.friends = new Person[3];
 		this.hobby = Hobby.randomHobby();
+		this.nickname = createNickname(this.firstName);
 	}
 	
 	public String toString() {
 		return "My name is "+firstName+" "+
-				lastName+" and I am from "+home+".";
+				lastName+ ". You can call me " + this.nickname + ", and I am from "+home+".";
 	}
 	
 	public void setInFirstPlace(Person f)
