@@ -69,7 +69,7 @@ public class CaveRoom
 		{
 			return direction[dir];
 		}
-		catch (Exception e)
+		catch (ArrayIndexOutOfBoundsException e)
 		{
 			return null;
 		}
@@ -82,5 +82,79 @@ public class CaveRoom
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	
+	public void enter()
+	{
+		contents = "X";
+	}
+	
+	public void leave()
+	{
+		contents = defaultContents;
+	}
+	
+	public void setConnection(int direction, CaveRoom anotherRoom, Door door)
+	{
+		addRoom(direction, anotherRoom, door);
+		anotherRoom.addRoom(oppositeDirection(direction), this, door);
+	}
 
+	public void addRoom(int dir, CaveRoom caveRoom, Door door) 
+	{
+		borderingRooms[dir] = caveRoom;
+		doors[dir] = door;
+		setDirections();
+	}
+
+	public static int oppositeDirection(int direction) 
+	{
+		try
+		{
+			String temp = toDirection(direction + 2);
+			return direction + 2;
+		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{	
+			return direction - 2;
+		}
+		
+	}
+
+	public void interpretInput(String input)
+	{
+		while(!isValid(input))
+		{
+			System.out.println("You can only enter 'w', 's', 'a', or 'd'.");
+			input = CaveExplorer.in.nextLine();
+		}
+		String inputChars = "wdsa";
+		int direction = inputChars.indexOf(input);
+		goToRoom(direction);
+	}
+
+	private boolean isValid(String input) 
+	{
+		String inputChars = "wdsa";
+		return inputChars.indexOf(input) != -1 && input.length() == 1;
+	}
+	
+	public static void setUpCaves()
+	{
+		
+	}
+	
+	public void goToRoom(int direction)
+	{
+		if (borderingRooms[direction] != null && doors[direction] != null && doors[direction].isOpen())
+		{
+			CaveExplorer.currentRoom.leave();
+			CaveExplorer.currentRoom = borderingRooms[direction];
+			CaveExplorer.currentRoom.enter();
+			CaveExplorer.inventory.updateMap();
+		}
+		else
+		{
+			System.err.println("You can't do that");
+		}
+	}
 }
