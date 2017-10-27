@@ -108,16 +108,7 @@ public class CaveRoom
 
 	public static int oppositeDirection(int direction) 
 	{
-		try
-		{
-			String temp = toDirection(direction + 2);
-			return direction + 2;
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{	
-			return direction - 2;
-		}
-		
+		return (direction + 2) % 4;
 	}
 
 	public void interpretInput(String input)
@@ -140,7 +131,22 @@ public class CaveRoom
 	
 	public static void setUpCaves()
 	{
+		CaveExplorer.caves = new CaveRoom[7][7];
+		CaveRoom[][] c = CaveExplorer.caves;
 		
+		for (int row = 0; row < c.length; row += 1)
+		{
+			for (int col = 0; col < c[row].length; col += 1)
+			{
+				c[row][col] = new CaveRoom("This cave has coordinates " + row + ", " + col);
+			}
+		}
+		// replace some default rooms with custom rooms (save for later)
+		CaveExplorer.currentRoom = c[0][1];
+		CaveExplorer.currentRoom.enter();
+		
+		c[0][1].setConnection(SOUTH, c[1][1], new Door());
+		c[1][1].setConnection(EAST, c[1][2], new Door());
 	}
 	
 	public void goToRoom(int direction)
