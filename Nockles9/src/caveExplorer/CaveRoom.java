@@ -40,39 +40,33 @@ public class CaveRoom
 	public String getDirections() {
 		return directions;
 	}
+	
+	public Door getDoor(int direction)
+	{
+		return doors[direction];
+	}
 
 	public void setDirections() 
 	{
-		int failCount = 0;
-		
+		this.description = "";
 		for (int i = 0; i < doors.length; i += 1)
 		{
-			try
+			if (this.doors[i] != null)
 			{
-				System.out.println("There is a " + doors[i].getDescription() + " to " + toDirection(i) + ". " + doors[i].getDetails());
-			}
-			catch (NullPointerException e)
-			{
-				failCount += 1;
-				if (failCount == 4)
-				{
-					System.out.println("There is no way out. You are trapped.");
-				}
+				this.description += "There is a " + doors[i].getDescription() + " to " + toDirection(i) + ". " + doors[i].getDetails();
 			}
 		}
+		if (this.description.equals(""))
+		{
+			this.description = "There is no way out. You are trapped in this room";
+		}
+		
 	}
 	
 	public static String toDirection(int dir)
 	{
 		String[] direction = {"the North", "the East", "the South", "the West"};
-		try
-		{
-			return direction[dir];
-		}
-		catch (ArrayIndexOutOfBoundsException e)
-		{
-			return null;
-		}
+		return direction[dir];
 	}
 	
 	public String getContents() {
