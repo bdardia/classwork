@@ -145,16 +145,21 @@ public class CaveRoom
 	
 	public static void setUpCaves()
 	{
-		CaveExplorer.caves = new CaveRoom[7][7];
+		CaveExplorer.caves = new NPCRoom[5][5];
 		CaveRoom[][] c = CaveExplorer.caves;
 		
 		for (int row = 0; row < c.length; row += 1)
 		{
 			for (int col = 0; col < c[row].length; col += 1)
 			{
-				c[row][col] = new CaveRoom("This cave has coordinates " + row + ", " + col);
+				c[row][col] = new NPCRoom("This cave has coordinates " + row + ", " + col);
 			}
 		}
+		NPC testNPC = new NPC();
+		testNPC.setPosition(1, 2);
+		CaveExplorer.npcs = new NPC[1];
+		CaveExplorer.npcs[0] = testNPC;
+		
 		// replace some default rooms with custom rooms (save for later)
 		CaveExplorer.currentRoom = c[0][1];
 		CaveExplorer.currentRoom.enter();
