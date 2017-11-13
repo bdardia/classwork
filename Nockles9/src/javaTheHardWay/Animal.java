@@ -67,8 +67,6 @@ public class Animal
 	}
 
 	public void setTrait1(Trait trait1) {
-		this.trait1 = trait1;
-	}
 
 	public Trait getTrait2() {
 		return trait2;
@@ -79,17 +77,11 @@ public class Animal
 		return "a " + age + " year old, " + trait1 + ", " + trait2 + " " + description;
 	}
 
-	public void setTrait2(Trait trait2) {
-		this.trait2 = trait2;
-	}
 
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
-	}
 
 	public boolean hasMated() {
 		return mated;
