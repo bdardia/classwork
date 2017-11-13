@@ -66,7 +66,6 @@ public class Animal
 		return trait1;
 	}
 
-	public void setTrait1(Trait trait1) {
 
 	public Trait getTrait2() {
 		return trait2;
