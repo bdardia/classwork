@@ -106,14 +106,3 @@ public class Animal
 		age += 1;
 	}
 } 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
