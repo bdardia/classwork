@@ -29,4 +29,5 @@ public void attack(Pokemon target) {
 			target.setHP(hp - 100);
 		}
 	});
+	squirtle.levelUp();
  }
