@@ -26,7 +26,7 @@ public class Pokemon
 		return this.hp;
 	}
 	
-	public int setHP(int hp)
+	public void setHP(int hp)
 	{
 		this.hp = hp;
 	}
