@@ -30,4 +30,17 @@ public class Pokemon
 	{
 		this.hp = hp;
 	}
+	
+	public void setPoisoned(boolean poisoned)
+	{
+		this.poisoned = poisoned;
+	}
+	
+	public void lapse()
+	{
+		if (this.poisoned)
+		{
+			this.hp -= 15;
+		}
+	}
 }
