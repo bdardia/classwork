@@ -52,4 +52,10 @@ public class Pokemon
 		 System.out.println("The attack missed");
 		 }
 		 }
+	
+	public void levelUp(Effect e)
+	{
+		level += 1;
+		e.happen();
+	}
 }
